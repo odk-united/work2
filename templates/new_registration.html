@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+</head>
+<body>
+    <h2>新規登録</h2>
+    <form method="POST">
+        <label>事業名: <input type="text" name="project_name"></label><br>
+        <label>貸出日: <input type="date" name="lend_date"></label><br>
+        <label>返却予定日: <input type="date" name="return_date"></label><br>
+        <label>PC番号: <input type="text" name="pc_number"></label><br>
+        <input type="submit" value="登録">
+        <input type="reset" value="リセット">
+        <a href="{{ url_for('dashboard') }}">キャンセル</a>
+    </form>
+</body>
+</html>

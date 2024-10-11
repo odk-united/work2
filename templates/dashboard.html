@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>事業名</th>
+                <th>貸出日</th>
+                <th>返却予定日</th>
+                <th>PC番号</th>
+                <th>設定進捗</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pc in pc_data %}
+            <tr>
+                <td>{{ pc.project_name }}</td>
+                <td>{{ pc.lend_date }}</td>
+                <td>{{ pc.return_date }}</td>
+                <td>{{ pc.pc_number }}</td>
+                <td>{{ pc.status }}</td>
+                <td><a href="{{ url_for('edit', index=loop.index0) }}">編集</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('new_registration') }}">新規登録</a>
+</body>
+</html>

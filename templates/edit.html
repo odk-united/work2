@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>編集</title>
+</head>
+<body>
+    <h2>編集</h2>
+    <form method="POST">
+        <label>事業名: <input type="text" name="project_name" value="{{ pc.project_name }}"></label><br>
+        <label>貸出日: <input type="date" name="lend_date" value="{{ pc.lend_date }}"></label><br>
+        <label>返却予定日: <input type="date" name="return_date" value="{{ pc.return_date }}"></label><br>
+        <label>設定進捗: 
+            <select name="status">
+                <option value="未着手" {% if pc.status == '未着手' %}selected{% endif %}>未着手</option>
+                <option value="仕掛中" {% if pc.status == '仕掛中' %}selected{% endif %}>仕掛中</option>
+                <option value="ダブルチェック待ち" {% if pc.status == 'ダブルチェック待ち' %}selected{% endif %}>ダブルチェック待ち</option>
+                <option value="完了" {% if pc.status == '完了' %}selected{% endif %}>完了</option>
+            </select>
+        </label><br>
+        <input type="submit" value="更新">
+        <a href="{{ url_for('dashboard') }}">キャンセル</a>
+    </form>
+</body>
+</html>
